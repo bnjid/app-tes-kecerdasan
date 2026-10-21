@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Tes Kecerdasan & Logika" />
-    <meta property="og:description" content="Aplikasi tes logika dan kecerdasan dengan level mudah, sedang, dan sulit. 250 variasi soal dan kunci jawaban." />
+    <meta property="og:description" content="Aplikasi tes logika dan kecerdasan dengan level mudah, sedang, dan sulit. 250 variasi soal lengkap dengan kunci jawaban." />
     <meta property="og:url" content="https://bnjid.github.io/app-tes-kecerdasan/" />
     <meta property="og:image" content="https://bnjid.github.io/app-tes-kecerdasan/thumbnail.svg" />
     <meta property="og:image:secure_url" content="https://bnjid.github.io/app-tes-kecerdasan/thumbnail.svg" />
@@ -20,7 +20,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSN0M1W9R8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'G-XSN0M1W9R8');
     </script>
@@ -48,134 +48,196 @@
         </button>
       </header>
 
-      <main class="app-card" aria-live="polite">
+      <main class="app-card">
         <section id="homeScreen" class="screen active">
           <div class="hero-panel">
-            <div class="hero-copy">
-              <span class="chip">Aksesibilitas • Modern • Interaktif</span>
-              <h2>Uji kemampuan logika, analisis, dan pola berpikir Anda.</h2>
+            <div>
+              <p class="mini-tag">Platform latihan logika</p>
+              <h2>Uji kemampuan berpikir cepat, logis, dan analitis.</h2>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-pill"><strong>250+</strong><span>variasi soal</span></div>
+              <div class="stat-pill"><strong>3</strong><span>level tes</span></div>
+              <div class="stat-pill"><strong>10</strong><span>soal per tes</span></div>
+            </div>
+          </div>
+
+          <div class="insight-grid">
+            <div class="feature-card highlight">
+              <span class="kicker">Fitur utama</span>
+              <h3>Modalitas tes yang modern dan interaktif</h3>
               <p>
-                Pilih tingkat kesulitan, kerjakan 10 soal acak, lalu lihat skor akhir
-disertai stok bank soal dan kunci jawaban.
+                Setiap sesi menampilkan 10 soal yang dipilih secara acak dari bank variasi lengkap,
+                lalu diakhiri dengan skor final dan kunci jawaban yang jelas.
               </p>
             </div>
-
-            <div class="stats-grid">
-              <div class="stat-box">
-                <strong>250</strong>
-                <span>Bank Soal</span>
-              </div>
-              <div class="stat-box">
-                <strong>3</strong>
-                <span>Level</span>
-              </div>
-              <div class="stat-box">
-                <strong>10</strong>
-                <span>Soal per Tes</span>
-              </div>
+            <div class="feature-card">
+              <span class="kicker">Level</span>
+              <h3>Mudah, Sedang, Sulit</h3>
+              <p>Pilih level sesuai kemampuanmu. Semua level dapat disesuaikan untuk latihan personal.</p>
             </div>
           </div>
 
-          <div class="level-section">
-            <h3>Pilih level</h3>
-            <div class="level-list" id="levelList"></div>
-          </div>
+          <div class="level-grid" id="levelList" aria-label="pilihan level tes"></div>
         </section>
 
         <section id="quizScreen" class="screen">
           <div class="quiz-topbar">
-            <div>
-              <div class="mini-label">Level</div>
-              <h3 id="quizLevelLabel">Mudah</h3>
+            <div class="level-pill" id="quizLevelLabel">Mudah</div>
+            <div class="progress-wrap" aria-label="progres soal">
+              <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+              </div>
             </div>
-            <div class="progress-box">
-              <span id="questionCounter">1 / 10</span>
-            </div>
+            <div class="counter" id="questionCounter">1 / 10</div>
           </div>
 
-          <div class="progress-rail" aria-hidden="true">
-            <div id="progressFill" class="progress-fill"></div>
+          <div class="question-panel">
+            <div class="question-label" id="questionNumber">Soal 1</div>
+            <h2 id="questionText">Memuat pertanyaan...</h2>
           </div>
 
-          <article class="question-card">
-            <div class="question-number" id="questionNumber">Soal 1</div>
-            <h4 id="questionText">Pertanyaan</h4>
-            <div id="answers" class="answer-list"></div>
-          </article>
+          <div id="answers" class="answers-wrap" aria-live="polite"></div>
 
-          <div class="quiz-actions">
-            <button id="prevBtn" class="soft-btn" type="button">Sebelumnya</button>
-            <button id="nextBtn" class="primary-btn" type="button">Lanjut</button>
+          <div class="nav-row">
+            <button id="prevBtn" class="nav-btn secondary" type="button">Sebelumnya</button>
+            <button id="nextBtn" class="nav-btn primary" type="button">Lanjut</button>
           </div>
         </section>
 
         <section id="resultScreen" class="screen">
-          <div class="result-box">
-            <div class="result-badge" id="resultBadge">Selesai</div>
-            <h3 id="resultTitle">Skor Akhir</h3>
-            <div class="score-ring">
-              <div>
-                <strong id="finalScore">0</strong>
-                <span>/ 10</span>
-              </div>
-            </div>
+          <div class="result-header">
+            <div class="result-badge">Hasil Tes</div>
+            <h2>Skor akhir Anda</h2>
+          </div>
 
-            <div class="result-summary">
-              <div>
-                <label>Benar</label>
-                <strong id="correctCount">0</strong>
-              </div>
-              <div>
-                <label>Salah</label>
-                <strong id="wrongCount">0</strong>
-              </div>
-              <div>
-                <label>Bank soal</label>
-                <strong id="bankCount">0</strong>
-              </div>
+          <div class="score-grid">
+            <div class="score-box main">
+              <span>Nilai</span>
+              <strong id="finalScore">0</strong>
             </div>
+            <div class="score-box">
+              <span>Benar</span>
+              <strong id="correctCount">0</strong>
+            </div>
+            <div class="score-box">
+              <span>Salah</span>
+              <strong id="wrongCount">0</strong>
+            </div>
+            <div class="score-box">
+              <span>Bank Soal</span>
+              <strong id="bankCount">0</strong>
+            </div>
+          </div>
 
-            <div class="result-text" id="resultMessage">
-              Kerjakan dengan fokus untuk memperoleh skor terbaik.
-            </div>
+          <div class="result-message-wrap">
+            <p id="resultMessage">Anda telah menyelesaikan tes.</p>
+          </div>
 
-            <div class="answer-key-box">
-              <h4>Kunci jawaban</h4>
-              <ol id="answerKeyList"></ol>
-            </div>
+          <div class="answer-key-box">
+            <h3>Kunci jawaban</h3>
+            <ul id="answerKeyList" class="answer-key-list"></ul>
+          </div>
 
-            <div class="result-actions">
-              <button id="retryBtn" class="primary-btn" type="button">Tes Lagi</button>
-              <button id="backHomeBtn" class="soft-btn" type="button">Pilih Level</button>
-            </div>
+          <div class="result-actions">
+            <button id="retryBtn" class="nav-btn primary" type="button">Ulang Tes</button>
+            <button id="backHomeBtn" class="nav-btn secondary" type="button">Kembali ke Home</button>
           </div>
         </section>
       </main>
     </div>
 
-    <div id="supportModal" class="modal" aria-hidden="true">
+    <div id="supportModal" class="support-modal" aria-hidden="true">
       <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="supportTitle">
-        <button id="closeModalBtn" class="close-btn" type="button" aria-label="Tutup modal">×</button>
-        <div class="modal-header">
-          <p class="eyebrow">Dukungan</p>
-          <h3 id="supportTitle">Bantu pengembangan aplikasi</h3>
-        </div>
+        <button id="closeModalBtn" class="close-modal" type="button" aria-label="Tutup dukungan">×</button>
 
-        <div class="qr-wrap">
-          <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=QRIS%20Support%20bnjid.github.io%2Fapp-tes-kecerdasan%2F"
-            alt="QRIS dukungan aplikasi"
-          />
+        <div class="modal-header">
+          <span class="mini-tag dark">Dukungan</span>
+          <h3 id="supportTitle">Dukung pengembangan aplikasi</h3>
         </div>
 
         <p class="support-copy">
-          Scan QRIS atau klik tautan di bawah untuk memberi dukungan pada
-          pengembangan app ini.
+          Bantu kami menjaga kualitas aplikasi, menambah variasi soal, dan mengembangkan fitur baru.
         </p>
 
-        <a class="support-link" href="https://bnjid.github.io/app-tes-kecerdasan/" target="_blank" rel="noreferrer">
-          https://bnjid.github.io/app-tes-kecerdasan/
-        </a>
+        <div class="qris-card">
+          <svg viewBox="0 0 220 220" aria-label="QRIS support" class="qris-svg">
+            <rect width="220" height="220" fill="#ffffff"/>
+            <g fill="#0f172a">
+              <rect x="16" y="16" width="28" height="28"/>
+              <rect x="16" y="52" width="28" height="12"/>
+              <rect x="16" y="72" width="12" height="28"/>
+              <rect x="32" y="88" width="12" height="28"/>
+              <rect x="16" y="120" width="28" height="12"/>
+              <rect x="16" y="140" width="12" height="28"/>
+              <rect x="32" y="140" width="12" height="28"/>
+              <rect x="16" y="176" width="28" height="28"/>
+
+              <rect x="52" y="16" width="12" height="28"/>
+              <rect x="68" y="16" width="28" height="12"/>
+              <rect x="92" y="16" width="12" height="28"/>
+              <rect x="52" y="40" width="52" height="12"/>
+              <rect x="52" y="52" width="12" height="28"/>
+              <rect x="92" y="52" width="12" height="28"/>
+              <rect x="52" y="88" width="12" height="28"/>
+              <rect x="68" y="88" width="28" height="12"/>
+              <rect x="92" y="88" width="12" height="28"/>
+              <rect x="52" y="120" width="12" height="28"/>
+              <rect x="88" y="120" width="16" height="28"/>
+              <rect x="52" y="160" width="28" height="12"/>
+              <rect x="84" y="160" width="12" height="12"/>
+              <rect x="52" y="176" width="12" height="28"/>
+              <rect x="68" y="176" width="16" height="28"/>
+              <rect x="92" y="176" width="12" height="28"/>
+
+              <rect x="112" y="16" width="12" height="28"/>
+              <rect x="128" y="16" width="28" height="12"/>
+              <rect x="156" y="16" width="12" height="28"/>
+              <rect x="172" y="16" width="32" height="12"/>
+              <rect x="112" y="40" width="52" height="12"/>
+              <rect x="168" y="40" width="12" height="28"/>
+              <rect x="112" y="52" width="12" height="28"/>
+              <rect x="128" y="52" width="12" height="28"/>
+              <rect x="148" y="52" width="12" height="28"/>
+              <rect x="164" y="52" width="12" height="28"/>
+              <rect x="112" y="88" width="12" height="28"/>
+              <rect x="132" y="88" width="40" height="12"/>
+              <rect x="176" y="88" width="12" height="28"/>
+              <rect x="112" y="120" width="12" height="28"/>
+              <rect x="136" y="120" width="12" height="28"/>
+              <rect x="160" y="120" width="12" height="28"/>
+              <rect x="176" y="120" width="12" height="28"/>
+              <rect x="112" y="160" width="12" height="12"/>
+              <rect x="132" y="160" width="12" height="12"/>
+              <rect x="152" y="160" width="12" height="12"/>
+              <rect x="172" y="160" width="12" height="12"/>
+              <rect x="112" y="176" width="28" height="28"/>
+              <rect x="148" y="176" width="12" height="28"/>
+              <rect x="164" y="176" width="28" height="12"/>
+              <rect x="188" y="176" width="12" height="28"/>
+
+              <rect x="52" y="112" width="12" height="12"/>
+              <rect x="76" y="112" width="12" height="12"/>
+              <rect x="100" y="112" width="12" height="12"/>
+              <rect x="136" y="112" width="12" height="12"/>
+              <rect x="164" y="112" width="12" height="12"/>
+              <rect x="188" y="112" width="12" height="12"/>
+              <rect x="72" y="148" width="12" height="12"/>
+              <rect x="96" y="148" width="12" height="12"/>
+              <rect x="120" y="148" width="12" height="12"/>
+              <rect x="148" y="148" width="12" height="12"/>
+              <rect x="176" y="148" width="12" height="12"/>
+              <rect x="88" y="64" width="12" height="12"/>
+              <rect x="148" y="92" width="12" height="12"/>
+              <rect x="64" y="184" width="12" height="12"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="support-actions">
+          <a class="support-link" href="https://saweria.co/" target="_blank" rel="noreferrer">Link dukungan</a>
+          <button class="support-copy-btn" type="button">Salin nomor QRIS</button>
+        </div>
       </div>
     </div>
 
