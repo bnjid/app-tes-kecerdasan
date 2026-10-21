@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tes Kecerdasan & Logika" />
+    <meta property="og:description" content="Aplikasi tes logika dan kecerdasan dengan level mudah, sedang, dan sulit. 250 variasi soal dan kunci jawaban." />
+    <meta property="og:url" content="https://bnjid.github.io/app-tes-kecerdasan/" />
+    <meta property="og:image" content="https://bnjid.github.io/app-tes-kecerdasan/thumbnail.svg" />
+    <meta property="og:image:secure_url" content="https://bnjid.github.io/app-tes-kecerdasan/thumbnail.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tes Kecerdasan & Logika" />
+    <meta name="twitter:description" content="Aplikasi tes logika dan kecerdasan dengan level mudah, sedang, dan sulit." />
+    <meta name="twitter:image" content="https://bnjid.github.io/app-tes-kecerdasan/thumbnail.svg" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSN0M1W9R8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XSN0M1W9R8');
+    </script>
+
+    <title>Tes Kecerdasan & Logika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-badge">IQ</div>
+          <div>
+            <p class="eyebrow">Latihan Otak</p>
+            <h1>Tes Kecerdasan & Logika</h1>
+          </div>
+        </div>
+
+        <button id="supportBtn" class="support-btn" type="button" aria-expanded="false">
+          <span class="support-glow"></span>
+          <span class="support-label">Dukung Kami</span>
+        </button>
+      </header>
+
+      <main class="app-card" aria-live="polite">
+        <section id="homeScreen" class="screen active">
+          <div class="hero-panel">
+            <div class="hero-copy">
+              <span class="chip">Aksesibilitas • Modern • Interaktif</span>
+              <h2>Uji kemampuan logika, analisis, dan pola berpikir Anda.</h2>
+              <p>
+                Pilih tingkat kesulitan, kerjakan 10 soal acak, lalu lihat skor akhir
+disertai stok bank soal dan kunci jawaban.
+              </p>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-box">
+                <strong>250</strong>
+                <span>Bank Soal</span>
+              </div>
+              <div class="stat-box">
+                <strong>3</strong>
+                <span>Level</span>
+              </div>
+              <div class="stat-box">
+                <strong>10</strong>
+                <span>Soal per Tes</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="level-section">
+            <h3>Pilih level</h3>
+            <div class="level-list" id="levelList"></div>
+          </div>
+        </section>
+
+        <section id="quizScreen" class="screen">
+          <div class="quiz-topbar">
+            <div>
+              <div class="mini-label">Level</div>
+              <h3 id="quizLevelLabel">Mudah</h3>
+            </div>
+            <div class="progress-box">
+              <span id="questionCounter">1 / 10</span>
+            </div>
+          </div>
+
+          <div class="progress-rail" aria-hidden="true">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+
+          <article class="question-card">
+            <div class="question-number" id="questionNumber">Soal 1</div>
+            <h4 id="questionText">Pertanyaan</h4>
+            <div id="answers" class="answer-list"></div>
+          </article>
+
+          <div class="quiz-actions">
+            <button id="prevBtn" class="soft-btn" type="button">Sebelumnya</button>
+            <button id="nextBtn" class="primary-btn" type="button">Lanjut</button>
+          </div>
+        </section>
+
+        <section id="resultScreen" class="screen">
+          <div class="result-box">
+            <div class="result-badge" id="resultBadge">Selesai</div>
+            <h3 id="resultTitle">Skor Akhir</h3>
+            <div class="score-ring">
+              <div>
+                <strong id="finalScore">0</strong>
+                <span>/ 10</span>
+              </div>
+            </div>
+
+            <div class="result-summary">
+              <div>
+                <label>Benar</label>
+                <strong id="correctCount">0</strong>
+              </div>
+              <div>
+                <label>Salah</label>
+                <strong id="wrongCount">0</strong>
+              </div>
+              <div>
+                <label>Bank soal</label>
+                <strong id="bankCount">0</strong>
+              </div>
+            </div>
+
+            <div class="result-text" id="resultMessage">
+              Kerjakan dengan fokus untuk memperoleh skor terbaik.
+            </div>
+
+            <div class="answer-key-box">
+              <h4>Kunci jawaban</h4>
+              <ol id="answerKeyList"></ol>
+            </div>
+
+            <div class="result-actions">
+              <button id="retryBtn" class="primary-btn" type="button">Tes Lagi</button>
+              <button id="backHomeBtn" class="soft-btn" type="button">Pilih Level</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="supportModal" class="modal" aria-hidden="true">
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="supportTitle">
+        <button id="closeModalBtn" class="close-btn" type="button" aria-label="Tutup modal">×</button>
+        <div class="modal-header">
+          <p class="eyebrow">Dukungan</p>
+          <h3 id="supportTitle">Bantu pengembangan aplikasi</h3>
+        </div>
+
+        <div class="qr-wrap">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=QRIS%20Support%20bnjid.github.io%2Fapp-tes-kecerdasan%2F"
+            alt="QRIS dukungan aplikasi"
+          />
+        </div>
+
+        <p class="support-copy">
+          Scan QRIS atau klik tautan di bawah untuk memberi dukungan pada
+          pengembangan app ini.
+        </p>
+
+        <a class="support-link" href="https://bnjid.github.io/app-tes-kecerdasan/" target="_blank" rel="noreferrer">
+          https://bnjid.github.io/app-tes-kecerdasan/
+        </a>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

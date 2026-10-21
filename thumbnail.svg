@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Tes Kecerdasan & Logika Thumbnail</title>
+  <desc id="desc">Modern promotional thumbnail for intelligence test app.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#eef4ff"/>
+      <stop offset="55%" stop-color="#e0ecff"/>
+      <stop offset="100%" stop-color="#f9fbff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#4c6fff"/>
+      <stop offset="100%" stop-color="#3ec9c4"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#ff6a73"/>
+      <stop offset="100%" stop-color="#ff9d5c"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1045" cy="120" r="150" fill="rgba(76,111,255,0.08)"/>
+  <circle cx="160" cy="520" r="160" fill="rgba(62,201,196,0.10)"/>
+
+  <g transform="translate(80 90)">
+    <rect x="0" y="0" width="1040" height="450" rx="32" fill="rgba(255,255,255,0.72)" stroke="rgba(76,111,255,0.14)"/>
+
+    <g transform="translate(70 70)">
+      <rect x="0" y="0" width="160" height="160" rx="36" fill="url(#accent)"/>
+      <text x="80" y="96" font-family="Arial, sans-serif" font-size="78" font-weight="900" text-anchor="middle" fill="#ffffff">IQ</text>
+    </g>
+
+    <text x="260" y="135" font-family="Arial, sans-serif" font-size="62" font-weight="800" fill="#1f2940">Tes Kecerdasan</text>
+    <text x="260" y="205" font-family="Arial, sans-serif" font-size="34" font-weight="600" fill="#5a6a8f">Logika • Analisis • Pola Pikir</text>
+
+    <g transform="translate(260 248)">
+      <rect width="210" height="90" rx="24" fill="rgba(76,111,255,0.08)"/>
+      <text x="105" y="52" font-family="Arial, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#2e3b78">250</text>
+      <text x="105" y="76" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="middle" fill="#53627d">Bank Soal</text>
+    </g>
+
+    <g transform="translate(500 248)">
+      <rect width="210" height="90" rx="24" fill="rgba(62,201,196,0.08)"/>
+      <text x="105" y="52" font-family="Arial, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1b7d7d">3</text>
+      <text x="105" y="76" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="middle" fill="#53627d">Level</text>
+    </g>
+
+    <g transform="translate(740 248)">
+      <rect width="210" height="90" rx="24" fill="rgba(255,122,104,0.08)"/>
+      <text x="105" y="52" font-family="Arial, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#c34f3d">10</text>
+      <text x="105" y="76" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="middle" fill="#53627d">Soal per Tes</text>
+    </g>
+
+    <g transform="translate(690 70)">
+      <g>
+        <rect x="0" y="0" width="230" height="80" rx="22" fill="url(#glow)"/>
+        <text x="115" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="800" text-anchor="middle" fill="#ffffff">Dukung</text>
+      </g>
+    </g>
+
+    <g transform="translate(70 380)">
+      <rect x="0" y="0" width="880" height="18" rx="9" fill="rgba(111,130,185,0.12)"/>
+      <rect x="0" y="0" width="610" height="18" rx="9" fill="url(#accent)"/>
+    </g>
+
+    <text x="90" y="430" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#465d88">Aplikasi modern • Gratis • Interaktif</text>
+  </g>
+</svg>
+
